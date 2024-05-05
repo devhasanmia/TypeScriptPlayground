@@ -16,5 +16,34 @@
 
   console.log(studnet1)
   console.log(studnet2)
+
+
+  function generateRandomId(length: number): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+    
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    
+    return result;
+}
+
+
+
+  const createNID = <T extends {name: string, email: string}>(nid: T) => {
+    const id = generateRandomId(8);
+    return{
+      id: id,
+      ...nid,
+    }
+  }
+
+  const bashanNid = createNID({name:"MD. Ms Ali", email: "bashar@gmail.com"})
+  console.log(bashanNid)
+
+
+
   //
 }
